@@ -1,0 +1,64 @@
+useState =>
+ useState Works
+    It enables components to have local state without needing a class.
+    When the state changes, React re-renders the component with the updated state.
+
+Use Cases in Projects/Websites
+    Form Handling: Storing user input values.
+    Toggle Features: Switching between dark mode and light mode.
+    Fetching Data: Storing API response data.
+    Dynamic UI Updates: Changing button states, like a "like" button in social media apps.
+    Managing Modals/Popups: Controlling visibility of UI elements.
+
+useCallback =>
+How It Works
+    useCallback(() => { ... }, [dependencies]) memoizes the function.
+    The function only changes when the dependencies in [] change.
+    If there are no dependencies ([]), the function never gets recreated.
+
+Where to Use useCallback in Your Projects?
+    MovieHub Website: Caching API request functions to avoid fetching data repeatedly.
+    Coffee Shop App: Preventing unnecessary re-renders when passing event handlers (e.g., onClick for add-to-cart buttons).
+    MERN Stack Project: Optimizing function calls inside useEffect when fetching backend data.
+
+Why Use useCallback?
+    Prevents Unnecessary Re-renders: Useful when passing functions as props to child components.
+    Optimizes Performance: Avoids re-creating functions inside components that frequently update.
+    Works Well with useEffect and React.memo: Helps avoid unnecessary effect executions.
+
+useEffect =>
+What is useEffect in React?
+    The useEffect hook allows you to perform side effects in React function components. Side effects include data fetching, DOM manipulation, event listeners, and subscriptions.
+
+
+import { useEffect, useState } from "react";
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log(`Count changed: ${count}`);
+  }, [count]); // Runs whenever 'count' changes
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+    </div>
+  );
+}
+
+How useEffect Works
+useEffect(() => { ... }, [dependencies])
+
+    Runs after the component renders.
+    Executes whenever the dependencies change.
+    If dependencies are empty ([]), it runs only once on mount.
+    If dependencies are not provided, it runs on every render.
+
+Where to Use useEffect in Your Projects?
+    📽 MovieHub Website: Fetching movie details when the page loads.
+    ☕ Coffee Shop App: Fetching menu items from an API when the app starts.
+    🛠 MERN Stack Project: Syncing frontend state with backend updates.
+
+useRef => 
